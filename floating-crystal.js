@@ -1,4 +1,4 @@
-import * as THREE from 'three';
+import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.module.js';
 
 let scene, camera, renderer, crystal;
 
@@ -32,6 +32,7 @@ function animate() {
     renderer.render(scene, camera);
 }
 
+// Resize handling
 window.addEventListener('resize', () => {
     renderer.setSize(window.innerWidth, window.innerHeight);
     camera.aspect = window.innerWidth / window.innerHeight;
