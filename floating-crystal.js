@@ -1,5 +1,5 @@
 body {
-    background:('https://github.com/FireflyPathGallery/interactive-gown-gallery/blob/main/background.png') no-repeat center center fixed;
+    background: url('https://github.com/FireflyPathGallery/interactive-gown-gallery/blob/main/background.png') no-repeat center center fixed;
     background-size: cover;
     overflow: hidden;
 }
