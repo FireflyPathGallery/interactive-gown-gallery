@@ -1,32 +1,39 @@
 import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.155.0/build/three.module.js';
-import { GLTFLoader } from 'https://cdn.jsdelivr.net/npm/three@0.155.0/examples/jsm/loaders/GLTFLoader.js';
 
 let scene, camera, renderer, crystal;
 
 function init() {
-    // Create scene
+    // Scene setup
     scene = new THREE.Scene();
 
-    // Set up camera
     camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-    camera.position.z = 3;
+    camera.position.z = 5;
 
-    // WebGL Renderer
     renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
     renderer.setSize(window.innerWidth, window.innerHeight);
     document.body.appendChild(renderer.domElement);
 
-    // Load the 3D Crystal Model
-    const loader = new GLTFLoader();
-    loader.load('crystalModel.glb', function (gltf) {
-        crystal = gltf.scene;
-        scene.add(crystal);
+    // Crystal geometry (simple placeholder for now)
+    const geometry = new THREE.OctahedronGeometry(1.2);
+    const material = new THREE.MeshStandardMaterial({
+        color: 0xb0e0e6, // Pale blue
+        emissive: 0x440088,
+        metalness: 0.5,
+        roughness: 0.3,
+        transparent: true,
+        opacity: 0.95
     });
+    crystal = new THREE.Mesh(geometry, material);
+    crystal.position.y = 0.8; // Hover above ground
+    scene.add(crystal);
 
-    // Lighting
-    const light = new THREE.PointLight(0xffffff, 2, 100);
-    light.position.set(10, 10, 10);
-    scene.add(light);
+    // Ambient glow
+    const ambient = new THREE.AmbientLight(0xffffff, 0.3);
+    scene.add(ambient);
+
+    const pointLight = new THREE.PointLight(0x9966ff, 1.5, 100);
+    pointLight.position.set(3, 4, 5);
+    scene.add(pointLight);
 
     animate();
 }
@@ -34,10 +41,9 @@ function init() {
 function animate() {
     requestAnimationFrame(animate);
 
-    // Rotate the crystal
-    if (crystal) {
-        crystal.rotation.y += 0.01;
-    }
+    // Rotate and hover
+    crystal.rotation.y += 0.005;
+    crystal.position.y = 0.8 + Math.sin(Date.now() * 0.002) * 0.05;
 
     renderer.render(scene, camera);
 }
@@ -48,5 +54,4 @@ window.addEventListener('resize', () => {
     camera.updateProjectionMatrix();
 });
 
-// Initialize the scene
 init();
