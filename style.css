@@ -22,8 +22,9 @@ body {
     position: absolute;
     width: 6px;
     height: 6px;
-    background: rgba(255, 105, 180, 0.8); /* Pink */
+    background: rgba(255, 105, 180, 0.8); /* Hot Pink */
     border-radius: 50%;
     box-shadow: 0 0 15px rgba(255, 105, 180, 0.8);
     animation: shimmer 3s infinite alternate ease-in-out;
 }
+
