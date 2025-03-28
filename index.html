@@ -1,15 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Floating Crystal Gallery</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Floating Crystal Gallery</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: url('https://raw.githubusercontent.com/FireflyPathGallery/interactive-gown-gallery/main/background.png') no-repeat center center fixed;
+      background-size: cover;
+      overflow: hidden;
+    }
+    canvas {
+      display: block;
+    }
+  </style>
 </head>
 <body>
-    <script type="module" src="crystal.js"></script>
-    <canvas id="crystalCanvas"></canvas>
-    <div class="fireflies"></div>
-    <script src="script.js"></script>
+  <script type="module" src="crystal.js"></script>
 </body>
 </html>
