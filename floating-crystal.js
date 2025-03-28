@@ -1,5 +1,5 @@
 body {
-    background: url('/mnt/data/background.png') no-repeat center center fixed;
+    background: url('background.png') no-repeat center center fixed;
     background-size: cover;
     overflow: hidden;
 }
